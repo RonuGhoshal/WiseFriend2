@@ -1,0 +1,2 @@
+class MenteeSurveysController < ApplicationController
+end

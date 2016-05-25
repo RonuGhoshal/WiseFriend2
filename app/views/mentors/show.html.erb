@@ -1,0 +1,6 @@
+<h3>Your Top Matches</h3>
+<% @mentor.possible_matches.each do |mentee|%>
+<%= erb :'mentees/_mentee', layout: false, locals: {mentee: mentee} %>
+<%= "Match Score: #{@mentor.match_score(mentee)}" %><br>
+<a href="/mentees/<%= mentee.id %>/mentorships">Accept Match</a><br>
+<% end %>

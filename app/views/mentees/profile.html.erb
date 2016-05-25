@@ -1,0 +1,15 @@
+<p>
+  Name: <%= mentee.first_name %><br>
+  Location: <%= mentee.location %><br>
+  Age: <%= mentee.age %><br>
+  Gender: <%= mentee.gender %><br>
+  Email: <%= mentee.email %><br>
+  Phone: <%= mentee.phone %><br>
+  Prefers Contact Via: <%= contact_converter(mentee.preferred_communication) %><br>
+  Additional Info: <%= mentee.addl_info%><br>
+  Top 3 Challenges:</p>
+<ol>
+  <li><%= challenge_converter(mentee.challenge1) %></li>
+  <li><%= challenge_converter(mentee.challenge2) %></li>
+  <li><%= challenge_converter(mentee.challenge3) %></li>
+</ol>

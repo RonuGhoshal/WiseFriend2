@@ -1,0 +1,32 @@
+class MenteesController < ApplicationController
+  def show
+    @mentee = Mentee.find(params[:id])
+  end
+
+  def new
+    @mentee = Mentee.new
+  end
+
+  def edit
+  end
+
+  def create
+    @mentee = Mentee.new(mentee_params)
+    if @mentee.save
+      session[:id] = @mentee.id
+      session[:type] = "mentee"
+      redirect_to @mentee
+    end
+  end
+
+  def update
+  end
+
+  def destroy
+  end
+
+  private
+    def mentee_params
+      params.require(:mentee).permit(:first_name, :last_name, :location, :age, :gender, :mentor_preferred_gender, :email, :password)
+    end
+end

@@ -1,0 +1,11 @@
+<p>
+  Name: <%= mentor.first_name %><br>
+  Location: <%= mentor.location %><br>
+  Age: <%= mentor.age %><br>
+  Gender: <%= mentor.gender %><br>
+  Prefers Contact Via: <%= contact_converter(mentor.preferred_communication) %><br>
+  Additional Info: <%= mentor.addl_info%><br>
+  Areas of Expertise:</p>
+  <% mentor.areas.each do |area| %>
+  <%= challenge_converter(area) %>
+  <% end %>

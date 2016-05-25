@@ -1,0 +1,64 @@
+<h3>How It Works</h3>
+<ol>
+  <li>Create a profile to let us know about yourself and your areas of expertise</li>
+  <li>Get matched with a pair based on the profiles that you both submitted</li>
+  <li>Connect and start helping!</li>
+</ol>
+
+<form method="post" action="/mentors">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <label>First Name</label>
+  <input type="text" name="mentor[first_name]"><br>
+  <label>Last Name</label>
+  <input type="text" name="mentor[last_name]"><br>
+  <label>Location</label>
+  <input type="text" name="mentor[location]"><br>
+  <label>Age</label>
+  <input type="text" name="mentor[age]"><br>
+  <label>Gender</label>
+  <select name="mentor[gender]">
+    <option value="O">Other/Prefer Not To Say</option>
+    <option value="M">Male</option>
+    <option value="F">Female</option>
+  </select><br>
+  <label>Preferred Mentee Gender</label>
+  <select name="mentor[mentee_preferred_gender]">
+      <option value="O">No Preference</option>
+      <option value="M">Male</option>
+      <option value="F">Female</option>
+  </select><br>
+  <label>Email</label>
+  <input type="text" name="mentor[email]"><br>
+  <label>Password</label>
+  <input type="text" name="mentor[password]"><br>
+  <label>Phone (optional)</label>
+  <input type="text" name="mentor[phone]"><br>
+  <label>LinkedIn Profile</label><br>
+  <input type="text" name="mentor[linkedin]"><br>
+  <label>How do you prefer to communicate?</label>
+  <select name="mentor[preferred_communication]">
+      <option value="E">Email</option>
+      <option value="P">Phone</option>
+      <option value="W">WiseFriend Messaging</option>
+  </select><br>
+  <label>How did you hear about us?</label>
+  <select name="mentor[how_did_you_hear]">
+      <option value="I">Internet Search</option>
+      <option value="F">Friends/Family</option>
+      <option value="S">Nonprofit/Social Services</option>
+      <option value="O">Other</option>
+  </select><br><br>
+  <label>List any other info that you think might be useful to us for finding you a match!</label><br><br>
+  <textarea rows="5" cols="50" name="mentor[addl_info]"></textarea><br><br>
+  <label>Areas of Expertise</label>
+  <p>Please check the box for any area(s) in which you feel you can provide guidance to your mentee.</p>
+  <input type="checkbox" name="expertise[]" value="A"> Affordable Housing<br>
+  <input type="checkbox" name="expertise[]" value="D"> Drug/Alcohol Treatment<br>
+  <input type="checkbox" name="expertise[]" value="ED"> Educational Opportunities<br>
+  <input type="checkbox" name="expertise[]" value="EM"> Employment/Job Search<br>
+  <input type="checkbox" name="expertise[]" value="F"> Family Counseling<br>
+  <input type="checkbox" name="expertise[]" value="MC"> Medical Care<br>
+  <input type="checkbox" name="expertise[]" value="MH"> Mental Health Services<br>
+  <input type="checkbox" name="expertise[]" value="N"> Nonviolent Conflict Resolution<br><br>
+  <input type="submit" value="Create Profile">
+</form>

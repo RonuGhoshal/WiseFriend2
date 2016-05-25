@@ -1,0 +1,2 @@
+module MenteeSurveysHelper
+end

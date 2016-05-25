@@ -1,0 +1,9 @@
+<h3>Send A New Message</h3>
+
+<%= form_for @message do |f| %>
+  <%= f.label :content%><br>
+  <%= f.text_area :content, :cols => "20", :rows => "10" %><br>
+  <button>
+    <%= f.submit %>
+  </button>
+<% end %>
