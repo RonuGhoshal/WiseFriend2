@@ -1,3 +1,3 @@
 <h3>Thank you for accepting this match!</h3>
 <h5>Mentee Info</h5>
-<%= erb :'mentees/_mentee', layout: false, locals: {mentee: @mentee} %>
+<%= render partial: 'mentees/profile', layout: false, locals: {mentee: @mentee} %>

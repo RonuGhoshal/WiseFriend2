@@ -1,5 +1,7 @@
 $(document).ready(function(){
+  console.log("things");
   $( '#challenge1' ).change(function(){
+    console.log("yeee")
     c1 = $(this).val();
     $('#challenge2 option').show();
     $('#challenge3 option').show();
