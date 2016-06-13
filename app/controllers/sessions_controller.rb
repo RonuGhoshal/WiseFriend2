@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
         session[:type] = "mentor"
         redirect_to @mentor
       else
-
+        p "stuff"
       end
 
     end

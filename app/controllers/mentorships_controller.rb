@@ -5,9 +5,12 @@ class MentorshipsController < ApplicationController
   end
 
   def create
-    @mentee = Mentee.find(params[:id])
+    p params
+    p "session id is #{session[:id]}"
+    @mentee = Mentee.find(params[:mentee_id])
     @mentor = Mentor.find(session[:id])
-    Mentorship.create(mentee_id: @mentee.id, mentor_id: @mentee.id)
+    Mentorship.create(mentee_id: @mentee.id, mentor_id: @mentor.id)
+    render :'/mentors/matches'
   end
 
   def show
