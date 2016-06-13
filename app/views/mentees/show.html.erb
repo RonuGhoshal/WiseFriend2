@@ -7,9 +7,7 @@
 </div>
 <% end  %>
 
-
-<h3>Your Profile</h3>
 <div id="mentee_profile">
   <h3>Your Profile</h3>
-  <%= erb :'mentees/_mentee', layout: false, locals: {mentee: @mentee} %>
+  <%= render partial:  'profile', layout: false, locals: {mentee: @mentee} %>
 </div>

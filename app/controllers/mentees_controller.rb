@@ -27,6 +27,6 @@ class MenteesController < ApplicationController
 
   private
     def mentee_params
-      params.require(:mentee).permit(:first_name, :last_name, :location, :age, :gender, :mentor_preferred_gender, :email, :password)
+      params.require(:mentee).permit(:first_name, :last_name, :location, :age, :gender, :mentor_preferred_gender, :email, :password, :phone, :preferred_communication, :how_did_you_hear, :addl_info, :challenge1, :challenge2, :challenge3)
     end
 end

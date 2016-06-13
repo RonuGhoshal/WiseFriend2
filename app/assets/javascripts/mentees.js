@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  console.log("things");
   $( '#challenge1' ).change(function(){
     c1 = $(this).val();
     $('#challenge2 option').show();
