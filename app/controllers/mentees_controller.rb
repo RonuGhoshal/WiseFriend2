@@ -1,6 +1,10 @@
 class MenteesController < ApplicationController
   def show
-    @mentee = Mentee.find(params[:id])
+      if session[:id] == params[:id].to_i && session[:type] == "mentee"
+        @mentee = Mentee.find(params[:id])
+      else
+        #flash error
+      end
   end
 
   def new

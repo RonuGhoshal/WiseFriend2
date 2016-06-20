@@ -2,9 +2,14 @@ class Mentor < ActiveRecord::Base
 
   include BCrypt
   has_secure_password
+
   has_many :mentorships
   has_many :mentees, through: :mentorships
   has_many :areas
+
+  validates :first_name, presence: true
+  validates :email, uniqueness: true
+  validates :password, length: { in: 6..20 }  # password or password_digest?
 
   def match_score(mentee)
     if self.mentee_preferred_gender == 'M' && mentee.gender != "M"

@@ -1,7 +1,11 @@
 class MentorsController < ApplicationController
 
   def show
-    @mentor = Mentor.find(params[:id])
+      if session[:id] == params[:id].to_i && session[:type] == "mentor"
+        @mentor = Mentor.includes(:mentorships).find(params[:id])
+      else
+        #flash error
+      end
   end
 
   def new
