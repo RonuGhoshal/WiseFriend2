@@ -3,7 +3,12 @@ class MenteesController < ApplicationController
       if session[:id] == params[:id].to_i && session[:type] == "mentee"
         @mentee = Mentee.find(params[:id])
       else
-        #flash error
+        if session[:type] == "mentee"
+          @mentee = Mentee.find(session[:id])
+        elsif session[:type] == "mentor"
+           @mentor = Mentor.find(session[:id])
+          redirect_to @mentor
+        end
       end
   end
 

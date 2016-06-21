@@ -4,6 +4,8 @@
   <title>WiseFriend</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -14,6 +16,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> My Profile</a></li>
       </ul>
     </div>
   </div>
