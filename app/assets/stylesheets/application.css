@@ -18,5 +18,14 @@
 @import "bootstrap";
 
 body {
-  background-image: url("http://www.51pptmoban.com/d/file/2014/05/13/d12562dabc94ff6130521134133b5d3d.jpg")
+  background-image: url("http://www.51pptmoban.com/d/file/2014/05/13/d12562dabc94ff6130521134133b5d3d.jpg");
+}
+
+#how-it-works {
+  text-align: left;
+  display: inline-block;
+}
+
+#areas-of-expertise {
+  text-align: left;
 }
