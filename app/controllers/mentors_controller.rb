@@ -30,6 +30,8 @@ class MentorsController < ApplicationController
         @mentor.areas.create(area_type: area)
       end
       redirect_to @mentor
+    else
+      p "poop"
     end
   end
 
