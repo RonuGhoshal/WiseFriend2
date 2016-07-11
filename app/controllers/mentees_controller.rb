@@ -22,6 +22,7 @@ class MenteesController < ApplicationController
   def create
     @mentee = Mentee.new(mentee_params)
     if @mentee.save
+      MenteeMailer.welcome_email(@mentee).deliver_later
       session[:id] = @mentee.id
       session[:type] = "mentee"
       redirect_to @mentee
