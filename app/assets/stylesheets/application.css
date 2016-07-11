@@ -29,3 +29,20 @@ body {
 #areas-of-expertise {
   text-align: left;
 }
+
+#mentor_profile_page {
+  padding-left: 10%;
+  padding-top: 20%;
+}
+
+#mentorship {
+  border-top: 1px solid white;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+#top-match {
+  border-top: 1px solid white;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}

@@ -1,9 +1,9 @@
 class MenteeMailer < ApplicationMailer
-  default from: "RonuGhoshal@gmail.com"
+  default from: "WiseFriendApp@gmail.com"
 
-  def sample_email(user)
-    @user = user
-    mail(to: @user.email, subject: 'Sample Email')
+  def welcome_email(mentee)
+    @mentee = mentee
+    mail(to: @mentee.email, subject: 'Welcome to WiseFriend!')
   end
 
 end

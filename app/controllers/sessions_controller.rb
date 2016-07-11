@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
       end
     elsif params[:user_type] == "mentor"
       @mentor = Mentor.find_by(email: params[:email])
+      p @mentor
       if @mentor && @mentor.authenticate(params[:password])
         session[:id] = @mentor.id
         session[:type] = "mentor"
