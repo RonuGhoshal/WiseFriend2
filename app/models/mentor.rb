@@ -9,7 +9,7 @@ class Mentor < ActiveRecord::Base
 
   validates :first_name, presence: true
   validates :email, uniqueness: true
-  validates :password_digest, length: { in: 6..20 }  # password or password_digest?
+  #validates :password_digest, length: { minimum: 6, maximum: 20 }, on: :create
 
   def match_score(mentee)
     if self.mentee_preferred_gender == 'M' && mentee.gender != "M"

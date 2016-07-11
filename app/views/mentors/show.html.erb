@@ -1,15 +1,19 @@
 <div id="mentor_profile_page">
-  <div id="current-mentorships">
-    <h3>Your Current Mentorships</h3>
-    <% @mentor.possible_matches.each do |mentee|%>
-        <div id="mentorship">
-          <% if Mentorship.find_by(mentor_id: @mentor.id, mentee_id: mentee.id) != nil %>
-          <%= render partial: 'mentees/profile', layout: false, locals: {mentee: mentee} %>
-          <%= "Match Score: #{@mentor.match_score(mentee)}" %><br>
-          <% end %>
-        </div>
-    <% end %>
-  </div>
+
+  <% if @mentor.mentorships.length >0 %>
+    <div id="current-mentorships">
+      <h3>Your Current Mentorships</h3>
+      <% @mentor.possible_matches.each do |mentee|%>
+          <div id="mentorship">
+            <% if Mentorship.find_by(mentor_id: @mentor.id, mentee_id: mentee.id) != nil %>
+            <%= render partial: 'mentees/profile', layout: false, locals: {mentee: mentee} %>
+            <%= "Match Score: #{@mentor.match_score(mentee)}" %><br>
+            <% end %>
+          </div>
+      <% end %>
+    </div>
+  <% end %>
+
   <div id="top-matches">
     <h3>Your Top Matches</h3>
     <% @mentor.possible_matches.each do |mentee|%>
