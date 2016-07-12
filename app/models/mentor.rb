@@ -8,7 +8,7 @@ class Mentor < ActiveRecord::Base
   has_many :areas
 
   validates :first_name, presence: true
-  validates :email, uniqueness: true
+  validates :email, presence: true, uniqueness: true
   #validates :password_digest, length: { minimum: 6, maximum: 20 }, on: :create
 
   def match_score(mentee)
@@ -31,7 +31,7 @@ class Mentor < ActiveRecord::Base
   end
 
   def possible_matches
-    @possible_matches = Mentee.all.sort_by {|m| -match_score(m)}[0..2]
+    @possible_matches = Mentee.all.sort_by {|m| -match_score(m)}[0..2].select{|m| match_score(m) > 0}
   end
 
   def password

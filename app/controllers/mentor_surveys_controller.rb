@@ -1,2 +1,0 @@
-class MentorSurveysController < ApplicationController
-end
