@@ -8,19 +8,17 @@ class SessionsController < ApplicationController
         session[:type] = "mentee"
         redirect_to @mentee
       else
-
+        render :'sessions/new'
       end
     elsif params[:user_type] == "mentor"
       @mentor = Mentor.find_by(email: params[:email])
-      p @mentor
       if @mentor && @mentor.authenticate(params[:password])
         session[:id] = @mentor.id
         session[:type] = "mentor"
         redirect_to @mentor
       else
-        p "stuff"
+        render :'sessions/new'
       end
-
     end
   end
 

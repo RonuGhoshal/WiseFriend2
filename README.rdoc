@@ -2,11 +2,10 @@
 
 Steps left to complete:
 
-Add action mailer upon registration
-Add action mailer when a mentee gets matched
 Add validations for mandatory fields
 Add admin level of authentication
 Add testing
+Update controllers for error-catching
 Styling
 
 <tt>rake doc:app</tt>.

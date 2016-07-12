@@ -17,26 +17,21 @@ class MentorsController < ApplicationController
     @mentor = Mentor.new
   end
 
-  def edit
-  end
-
   def create
     @mentor = Mentor.new(mentor_params)
     if @mentor.save
       MentorMailer.welcome_email(@mentor).deliver_later
       session[:id] = @mentor.id
       session[:type] = "mentor"
-      params[:expertise].each do |area|
-        @mentor.areas.create(area_type: area)
+      if params[:expertise]
+        params[:expertise].each do |area|
+          @mentor.areas.create(area_type: area)
+        end
       end
       redirect_to @mentor
+    else
+      render :'/mentors/new'
     end
-  end
-
-  def update
-  end
-
-  def destroy
   end
 
   private

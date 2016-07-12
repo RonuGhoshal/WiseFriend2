@@ -35,6 +35,17 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
+                    <% if session[:id] != nil %>
+                    <li>
+                        <% if session[:type] == "mentor" %>
+                            <% @mentor = Mentor.find(session[:id]) %>
+                            <%= link_to 'My Profile', mentor_path(@mentor) %>
+                        <% elsif session[:type] == "mentee" %>
+                            <% @mentee = Mentee.find(session[:id]) %>
+                            <%= link_to 'My Profile', mentee_path(@mentee) %>
+                        <% end %>
+                    </li>
+                    <% end %>
                     <li>
                         <a class="page-scroll" href="#about">About</a>
                     </li>
