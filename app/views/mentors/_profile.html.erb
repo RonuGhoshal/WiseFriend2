@@ -5,7 +5,12 @@
   Gender: <%= mentor.gender %><br>
   Prefers Contact Via: <%= contact_converter(mentor.preferred_communication) %><br>
   Additional Info: <%= mentor.addl_info%><br>
-  Areas of Expertise:</p>
-  <% mentor.areas.each do |area| %>
-  <%= challenge_converter(area) %>
-  <% end %>
+  Areas of Expertise:
+</p>
+<ol class="challenge-list">
+<% mentor.areas.each do |area| %>
+  <li>
+    <%= challenge_converter(area.area_type)%>
+  </li>
+<% end %>
+</ol>
