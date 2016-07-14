@@ -8,8 +8,10 @@
   Prefers Contact Via: <%= contact_converter(mentee.preferred_communication) %><br>
   Additional Info: <%= mentee.addl_info%><br>
   Top 3 Challenges:</p>
-<ol>
+<p>
+<ol class="challenge-list">
   <li><%= challenge_converter(mentee.challenge1) %></li>
   <li><%= challenge_converter(mentee.challenge2) %></li>
   <li><%= challenge_converter(mentee.challenge3) %></li>
 </ol>
+</p>

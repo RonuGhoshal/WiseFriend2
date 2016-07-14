@@ -23,7 +23,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.clear
+    session[:id] = nil
+    session[:type] = nil
     redirect_to root_path
   end
 
