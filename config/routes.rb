@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy'
   get '/mentors/new'
   get '/mentees/new'
-
+  get "/pages/:page" => "pages#show"
 
   resources :sessions
   resources :messages

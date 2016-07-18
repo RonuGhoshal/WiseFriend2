@@ -51,3 +51,19 @@ body {
   padding-bottom: 3%;
 }
 
+.centered {
+  text-align: center;
+}
+
+.resource-page {
+  padding-top: 15%;
+}
+
+.resource-list {
+  margin-left: 33.3%;
+  text-align: left;
+}
+
+.navbar {
+  background-color: black !important;
+}
