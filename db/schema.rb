@@ -23,14 +23,6 @@ ActiveRecord::Schema.define(version: 20160505165625) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "mentee_surveys", force: :cascade do |t|
-    t.integer  "rating"
-    t.boolean  "continue"
-    t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "mentees", force: :cascade do |t|
     t.text     "first_name"
     t.text     "last_name"
@@ -49,14 +41,6 @@ ActiveRecord::Schema.define(version: 20160505165625) do
     t.text     "password_digest"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
-  end
-
-  create_table "mentor_surveys", force: :cascade do |t|
-    t.integer  "rating"
-    t.boolean  "continue"
-    t.text     "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "mentors", force: :cascade do |t|
@@ -82,16 +66,6 @@ ActiveRecord::Schema.define(version: 20160505165625) do
     t.integer  "mentor_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "messages", force: :cascade do |t|
-    t.integer  "sender_id"
-    t.text     "sender_type"
-    t.integer  "recipient_id"
-    t.integer  "recipient_type"
-    t.text     "content"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
   end
 
   create_table "sessions", force: :cascade do |t|
