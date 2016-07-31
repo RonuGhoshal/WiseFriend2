@@ -18,7 +18,13 @@
 @import "bootstrap";
 
 body {
-  background-image: url("http://www.51pptmoban.com/d/file/2014/05/13/d12562dabc94ff6130521134133b5d3d.jpg");
+  background-image: url("http://ronughoshal.github.io/images/light-blue-backgrounds-2.jpg")
+}
+
+#new-profile {
+  border: 2px solid white;
+  background-color: blue;
+  font-family: Helvetica;
 }
 
 .how-it-works {
