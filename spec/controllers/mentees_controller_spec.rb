@@ -5,8 +5,9 @@ describe MenteesController do
   describe "GET #show" do
     it "assigns the requested mentee to mentee" do
       mentee = FactoryBot.create(:mentee)
-      get :show, params: { id: mentee }
-      assigns(:mentee).should eq(mentee)
+      get :show, params: { id: mentee.id }
+      binding.pry
+      expect(assigns(:mentee)).to eq(mentee)
     end
 
     it "renders the :show template" do

@@ -21,6 +21,9 @@ gem 'rspec-rails'
 group :development, :test do
   gem 'byebug'
   gem 'factory_bot'
+  gem 'factory_bot_rails'
+  gem 'pry-rails'
+  gem 'pry-stack_explorer'
 end
 
 group :development do

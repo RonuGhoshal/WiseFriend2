@@ -5,8 +5,8 @@ describe MentorsController do
   describe "GET #show" do
     it "assigns the requested mentor to mentor" do
       mentor = FactoryBot.create(:mentor)
-      get :show, params: { id: mentor }
-      assigns(:mentor).should eq(mentor)
+      get :show, params: { id: mentor.id }
+      expect(assigns(:mentor)).to eq(mentor)
     end
 
     it "renders the :show template" do
