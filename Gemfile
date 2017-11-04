@@ -18,8 +18,6 @@ gem 'figaro'
 gem 'rspec'
 gem 'rspec-rails'
 
-
-
 group :development, :test do
   gem 'byebug'
   gem 'factory_bot'

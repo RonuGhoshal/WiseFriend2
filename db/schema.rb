@@ -63,13 +63,51 @@ ActiveRecord::Schema.define(version: 20160505165625) do
   create_table "mentorships", id: :serial, force: :cascade do |t|
     t.integer "mentee_id"
     t.integer "mentor_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+
+  create_table "mentees", force: :cascade do |t|
+    t.text     "first_name"
+    t.text     "last_name"
+    t.text     "location"
+    t.integer  "age"
+    t.text     "gender"
+    t.text     "mentor_preferred_gender"
+    t.text     "email"
+    t.text     "phone"
+    t.text     "preferred_communication"
+    t.text     "how_did_you_hear"
+    t.text     "addl_info"
+    t.text     "challenge1"
+    t.text     "challenge2"
+    t.text     "challenge3"
+    t.text     "password_digest"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
+
+  create_table "mentors", force: :cascade do |t|
+    t.text     "first_name"
+    t.text     "last_name"
+    t.text     "location"
+    t.integer  "age"
+    t.text     "gender"
+    t.text     "mentee_preferred_gender"
+    t.text     "email"
+    t.text     "phone"
+    t.text     "linkedin"
+    t.text     "preferred_communication"
+    t.text     "how_did_you_hear"
+    t.text     "addl_info"
+    t.text     "password_digest"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "mentorships", force: :cascade do |t|
+    t.integer  "mentee_id"
+    t.integer  "mentor_id"
 
   create_table "sessions", id: :serial, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
 end

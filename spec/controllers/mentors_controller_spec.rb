@@ -53,7 +53,5 @@ describe MentorsController do
         response.should render_template :new
       end
     end
-
   end
-
 end
