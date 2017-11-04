@@ -1,0 +1,75 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require normalize-rails
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  background-image: url("http://ronughoshal.github.io/images/light-blue-backgrounds-2.jpg")
+}
+
+.new-profile {
+  border: 2px solid white;
+  background-color: blue;
+  font-family: Helvetica;
+}
+
+.how-it-works {
+  text-align: left;
+  display: inline-block;
+}
+
+#areas-of-expertise {
+  text-align: left;
+}
+
+.profile-page{
+  padding-left: 10%;
+  padding-top: 20%;
+}
+
+.challenge-list{
+  padding-left: 1.2em;
+}
+
+#mentorship {
+  border-top: 1px solid white;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+#top-match {
+  border-top: 1px solid white;
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+.centered {
+  text-align: center;
+}
+
+.resource-page {
+  padding-top: 15%;
+}
+
+.resource-list {
+  margin-left: 33.3%;
+  text-align: left;
+}
+
+.navbar {
+  background-color: black !important;
+}
