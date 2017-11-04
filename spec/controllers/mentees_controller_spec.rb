@@ -6,7 +6,6 @@ describe MenteesController do
     it "assigns the requested mentee to mentee" do
       mentee = FactoryBot.create(:mentee)
       get :show, params: { id: mentee.id }
-      binding.pry
       expect(assigns(:mentee)).to eq(mentee)
     end
 

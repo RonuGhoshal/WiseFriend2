@@ -7,6 +7,7 @@ gem 'pg'
 gem 'sass-rails'
 gem 'uglifier'
 gem 'coffee-rails'
+gem 'devise'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder'
@@ -35,4 +36,6 @@ end
 group :test do
   gem 'shoulda-matchers'
   gem 'rails-controller-testing'
+  gem 'faker'
+  gem 'database_cleaner'
 end

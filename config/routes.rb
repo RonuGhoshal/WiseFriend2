@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :models
   root 'sessions#index'
 
   get 'login' => 'sessions#new'
