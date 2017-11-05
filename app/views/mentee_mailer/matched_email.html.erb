@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Congratulations, <%= @mentee.first_name %>!</h1>
+    <p>
+      <% = @mentee.mentorships.last.first_name %> has signed up to be your mentor! We have provided them with your contact info, and they should be reaching out to you soon.<br>
+    </p>
+    <p>
+      If you have any questions or concerns, please contatct WiseFriendApp@gmail.com.
+    </p>
+    <p>Thanks for joining and have a great day!</p>
+  </body>
+</html>

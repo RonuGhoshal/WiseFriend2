@@ -1,0 +1,17 @@
+<div class="profile-page">
+
+  <% if Mentorship.find_by(mentee_id: @mentee.id) %>
+  <h3> Congratulations - you've been matched! </h3>
+  <div id="mentor_profile">
+    <h3>Your Mentor's Profile</h3>
+    <%= render partial: '/mentors/profile', layout: false, locals: {mentor: @mentee.mentors[0]} %>
+  </div>
+  <% end  %>
+  <br>
+  <br>
+  <div id="mentee_profile">
+    <h3>Your Profile</h3>
+    <%= render partial:  'profile', layout: false, locals: {mentee: @mentee} %>
+  </div>
+
+</div>

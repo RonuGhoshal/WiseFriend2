@@ -1,0 +1,99 @@
+<section id="about" class="container content-section text-center">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2">
+      <h3>How It Works</h3>
+      <ul class="how-it-works">
+        <li>Create a profile to let us know about yourself and your current challenges</li>
+        <li>Get matched with a mentor</li>
+        <li>Connect with your mentor and start getting the help you need!</li>
+      </ul>
+
+      <form method="post" action="/mentees">
+        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+        <div class = "form-group">
+          <label>First Name</label>
+          <input type="text" name="mentee[first_name]" class="form-control"><br>
+          <label>Last Name(optional)</label>
+          <input type="text" name="mentee[last_name]" class="form-control"><br>
+          <label>Location</label>
+          <input type="text" name="mentee[location]" class="form-control"><br>
+          <label>Age</label>
+          <input type="text" name="mentee[age]" class="form-control"><br>
+          <label>Gender</label>
+          <select name="mentee[gender]" class="form-control">
+            <option value="O">Other/Prefer Not To Say</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+          </select><br>
+          <label>Preferred Mentor Gender</label>
+          <select name="mentee[mentor_preferred_gender]" class="form-control">
+              <option value="O">No Preference</option>
+              <option value="M">Male</option>
+              <option value="F">Female</option>
+          </select><br>
+          <label>Email</label>
+          <input type="text" name="mentee[email]" class="form-control"><br>
+          <label>Password</label>
+          <input type="password" name="mentee[password]" class="form-control"><br>
+          <label>Phone (optional)</label>
+          <input type="text" name="mentee[phone]" class="form-control"><br>
+          <label>How do you prefer to communicate?</label>
+          <select name="mentee[preferred_communication]" class="form-control">
+              <option value="E">Email</option>
+              <option value="P">Phone</option>
+          </select><br>
+          <label>How did you hear about us?</label>
+          <select name="mentee[how_did_you_hear]" class="form-control">
+              <option value="I">Internet Search</option>
+              <option value="F">Friends/Family</option>
+              <option value="S">Nonprofit/Other Social Services</option>
+              <option value="O">Other</option>
+          </select><br><br>
+          <label>List any other info that you think might be useful to us for finding you a mentor!</label><br><br>
+          <textarea rows="5" cols="50" name="mentee[addl_info]" class="form-control"></textarea><br><br>
+          <label>Top 3 Challenges</label>
+          <p>Please select up to 3 areas where you would like advice or mentoring</p>
+          <div id="mentee_challenges">
+            <label>Challenge #1</label>
+            <select id="challenge1" name="mentee[challenge1]">
+                <option value="blank"></option>
+                <option value="A">Affordable Housing</option>
+                <option value="D">Drug/Alcohol Treatment</option>
+                <option value="ED">Educational Opportunities</option>
+                <option value="EM">Employment/Job Search</option>
+                <option value="F">Family Counseling</option>
+                <option value="MC">Medical Care</option>
+                <option value="MH">Mental Health Services</option>
+                <option value="N">Nonviolent Conflict Resolution</option>
+            </select><br>
+            <label>Challenge #2</label>
+            <select id="challenge2" name="mentee[challenge2]">
+                <option value="blank"></option>
+                <option value="A">Affordable Housing</option>
+                <option value="D">Drug/Alcohol Treatment</option>
+                <option value="ED">Educational Opportunities</option>
+                <option value="EM">Employment/Job Search</option>
+                <option value="F">Family Counseling</option>
+                <option value="MC">Medical Care</option>
+                <option value="MH">Mental Health Services</option>
+                <option value="N">Nonviolent Conflict Resolution</option>
+            </select><br>
+            <label>Challenge #3</label>
+            <select id="challenge3" name="mentee[challenge3]">
+                <option value="blank"></option>
+                <option value="A">Affordable Housing</option>
+                <option value="D">Drug/Alcohol Treatment</option>
+                <option value="ED">Educational Opportunities</option>
+                <option value="EM">Employment/Job Search</option>
+                <option value="F">Family Counseling</option>
+                <option value="MC">Medical Care</option>
+                <option value="MH">Mental Health Services</option>
+                <option value="N">Nonviolent Conflict Resolution</option>
+            </select><br><br>
+          </div>
+          <input class="new-profile" type="submit" value="Create Profile">
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
