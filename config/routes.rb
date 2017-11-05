@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  devise_for :models
-  root 'sessions#index'
+  devise_for :users
+  root 'welcome#index'
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
