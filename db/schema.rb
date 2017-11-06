@@ -22,44 +22,6 @@ ActiveRecord::Schema.define(version: 20171105014312) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "mentees", id: :serial, force: :cascade do |t|
-    t.text "first_name"
-    t.text "last_name"
-    t.text "location"
-    t.integer "age"
-    t.text "gender"
-    t.text "mentor_preferred_gender"
-    t.text "email"
-    t.text "phone"
-    t.text "preferred_communication"
-    t.text "how_did_you_hear"
-    t.text "addl_info"
-    t.text "challenge1"
-    t.text "challenge2"
-    t.text "challenge3"
-    t.text "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "mentors", id: :serial, force: :cascade do |t|
-    t.text "first_name"
-    t.text "last_name"
-    t.text "location"
-    t.integer "age"
-    t.text "gender"
-    t.text "mentee_preferred_gender"
-    t.text "email"
-    t.text "phone"
-    t.text "linkedin"
-    t.text "preferred_communication"
-    t.text "how_did_you_hear"
-    t.text "addl_info"
-    t.text "password_digest"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "mentorships", id: :serial, force: :cascade do |t|
     t.integer "mentee_id"
     t.integer "mentor_id"
@@ -68,7 +30,7 @@ ActiveRecord::Schema.define(version: 20171105014312) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
+    t.string "email"
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -78,6 +40,22 @@ ActiveRecord::Schema.define(version: 20171105014312) do
     t.datetime "last_sign_in_at"
     t.inet "current_sign_in_ip"
     t.inet "last_sign_in_ip"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "location"
+    t.integer "age"
+    t.string "gender"
+    t.string "mentee_preferred_gender"
+    t.string "mentor_preferred_gender"
+    t.string "phone"
+    t.string "linkedin"
+    t.string "preferred_communication"
+    t.string "how_did_you_hear"
+    t.string "addl_info"
+    t.string "challenge1"
+    t.string "challenge2"
+    t.string "challenge3"
+    t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "authentication_token", limit: 30
