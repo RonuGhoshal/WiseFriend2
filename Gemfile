@@ -26,6 +26,7 @@ group :development, :test do
   gem 'factory_bot_rails'
   gem 'pry-rails'
   gem 'pry-stack_explorer'
+  gem 'faker'
 end
 
 group :development do
@@ -37,6 +38,5 @@ end
 group :test do
   gem 'shoulda-matchers'
   gem 'rails-controller-testing'
-  gem 'faker'
   gem 'database_cleaner'
 end
