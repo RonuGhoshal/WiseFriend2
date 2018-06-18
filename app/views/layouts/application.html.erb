@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Wise Friend</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' unless current_user.nil? %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-  <%= render 'layouts/navbar' %>
-
-  <div class="container">
-    <%= render 'layouts/flash' %>
-    <%= yield %>
-  </div>
-
-  <%= render 'layouts/footer' %>
-
-</body>
+  <head>
+    <title>Wise Friend</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' unless current_user.nil? %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render 'layouts/navbar' %>
+    <div class="container">
+      <%= render 'layouts/flash' %>
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
+  </body>
 </html>
