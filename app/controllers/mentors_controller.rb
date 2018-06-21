@@ -19,7 +19,7 @@ class MentorsController < ApplicationController
 
   def create
     @mentor = Mentor.new(mentor_params)
-    if @mentor.save
+    if @mentor.save!
       MentorMailer.welcome_email(@mentor).deliver_later
       session[:id] = @mentor.id
       session[:type] = "mentor"
