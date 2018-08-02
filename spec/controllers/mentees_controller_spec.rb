@@ -4,7 +4,7 @@ require 'spec_helper'
 describe MenteesController do
   describe "GET #show" do
     it "assigns the requested mentee to mentee" do
-      mentee = FactoryBot.create(:mentee)
+      mentee = create(:mentee)
       get :show, params: { id: mentee.id }
       expect(assigns(:mentee)).to eq(mentee)
     end
