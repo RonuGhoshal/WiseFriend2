@@ -1,14 +1,8 @@
-class Mentee < ActiveRecord::Base
-  include BCrypt
-  has_secure_password
-
+class Mentee < User
   has_many :mentorships
   has_many :mentors, through: :mentorships
 
-  validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :email, presence: true, uniqueness: true
-  #validates :password, length: { minimum: 6, maximum: 20 }, on: :create
 
   def password
     @password ||= Password.new(password_digest)

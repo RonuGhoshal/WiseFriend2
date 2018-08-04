@@ -1,0 +1,33 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-links-collapse" aria-expanded="false" aria-controls="bs-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand hidden-xs hidden-sm hidden-md" href="/">
+        Home
+      </a>
+    </div>
+
+
+    <div class="collapse navbar-collapse" id="navbar-links-collapse">
+      <ul class="nav navbar-nav">
+        <%= navbar_link('About', "/about") %>
+        <%= navbar_link('Resources', "/resources") %>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <% if signed_in? %>
+          <%= navbar_link(current_user.username, user_path(current_user), class: 'visible-lg-block') { image_tag(current_user.image_url, class: "img-circle special-img") if current_user.image_url } %>
+          <%= navbar_link('', destroy_user_session_path, { method: :delete, class: 'visible-md-block visible-lg-block' }) { fa_icon 'sign-out' } %>
+        <% else %>
+          <li><%= link_to 'Sign In', new_user_session_path %></li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

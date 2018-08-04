@@ -1,15 +1,7 @@
-class Mentor < ActiveRecord::Base
-
-  include BCrypt
-  has_secure_password
-
+class Mentor < User
   has_many :mentorships
   has_many :mentees, through: :mentorships
   has_many :areas
-
-  validates :first_name, presence: true
-  validates :email, presence: true, uniqueness: true
-  #validates :password_digest, length: { minimum: 6, maximum: 20 }, on: :create
 
   def match_score(mentee)
     if self.mentee_preferred_gender == 'M' && mentee.gender != "M"
@@ -32,15 +24,6 @@ class Mentor < ActiveRecord::Base
 
   def possible_matches
     @possible_matches = Mentee.all.sort_by {|m| -match_score(m)}[0..2].select{|m| match_score(m) > 0}
-  end
-
-  def password
-    @password ||= Password.new(password_digest)
-  end
-
-  def password=(new_password)
-    @password = Password.create(new_password)
-    self.password_digest = @password
   end
 
 end
