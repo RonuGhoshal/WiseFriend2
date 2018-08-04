@@ -6,7 +6,7 @@ FactoryBot.define do
         "testuser#{n}@wisefriendmentors.com"
       end
       password Faker::Internet.password
-      type "mentor"
+      type "Mentor"
     end
 
     factory :invalid_mentor do
@@ -20,7 +20,7 @@ FactoryBot.define do
         "testuser#{n}@wisefriendmentees.com"
       end
       password Faker::Internet.password
-      type "mentee"
+      type "Mentee"
     end
 
     factory :invalid_mentee, parent: :mentee do

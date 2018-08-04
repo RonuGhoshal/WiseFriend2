@@ -5,13 +5,10 @@ Rails.application.routes.draw do
   root 'welcome#index'
 
   resources :messages
-  resources :mentors do
+  resources :users do
     resources :mentor_surveys
-    resources :areas
-  end
-  resources :mentees do
     resources :mentee_surveys
+    resources :areas
     resources :mentorships
   end
-
 end
