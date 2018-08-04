@@ -21,7 +21,7 @@
           <div id="top-match">
           <%= render partial: 'mentees/profile', layout: false, locals: {mentee: mentee} %>
           <%= "Match Score: #{@user.match_score(mentee)}" %><br>
-          <%= link_to "Accept Match", "/mentees/#{mentee.id}/mentorships/", method: :post %>
+          <%= link_to "Accept Match", "/users/#{mentee.id}/mentorships/", method: :post %>
           </div>
           <% end %>
 

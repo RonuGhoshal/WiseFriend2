@@ -2,23 +2,16 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    if @user.type == "Mentor"
-      render 'mentors/show'
-    elsif @user.type == "Mentee"
-      render 'mentees/show'      
-    end
   end
 
   def new
-    @mentor = Mentor.new
+    @user = User.new(type: params[:type])
   end
 
   def create
     @mentor = Mentor.new(mentor_params)
     if @mentor.save!
       MentorMailer.welcome_email(@mentor).deliver_later
-      session[:id] = @mentor.id
-      session[:type] = "mentor"
       if params[:expertise]
         params[:expertise].each do |area|
           @mentor.areas.create(area_type: area)

@@ -10,10 +10,10 @@
 
   <div class="col-sm-6">
     <div id="mentee_signup">Have you recently been released from incarceration? We understand that the process of re-entering society and finding stability can be a difficult one. Sign up now to be matched with a mentor who can help guide you and assist with the challenges you face.<br>
-      <a href="/mentees/new">Sign Up Now!</a><br><br><br>
+      <%= link_to("Sign Up Now!", new_user_path(:type => "Mentee")) %>
     </div>
     <div id="mentor_signup">Volunteer with WiseFriend and make an impact today! If you're interested in helping individuals get their lives back on track and working towards the end of mass incarceration, sign up here to be a mentor!<br>
-      <a class="button-right" href="/mentors/new">Sign Up Now!</a>
+      <%= link_to("Sign Up Now!", new_user_path(:type => "Mentor")) %>
     </div>
   </div>
 </div>

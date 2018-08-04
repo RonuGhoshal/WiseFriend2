@@ -1,0 +1,5 @@
+<% if @user.type == "Mentor" %>
+  <%= render partial: 'mentor' %>
+<% elsif @user.type == 'Mentee' %>
+  <%= render partial: 'mentee' %>
+<% end %>
