@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :first_name, presence: true
   validates :email, presence: true, uniqueness: true
 
-  def self.from_omniauth access_token
+  def self.from_omniauth access_token, type
     data = access_token.info
     user = User.find_by("lower(email) = ?", data.email.downcase)
     # Uncomment the section below if you want users to be created if they don't exist
@@ -21,6 +21,7 @@ class User < ApplicationRecord
         logger.warn "failed to create a new user for email=#{user.email} id=#{user.id}"
       end
     end
+    user.type = type
     user
   end
 end

@@ -6,12 +6,13 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     # The model checks that the email address ends in pivotbio.com and will not
     # save the user otherwise.
     #
-    @user = User.from_omniauth(request.env['omniauth.auth'])
+    user_type = request.env["omniauth.params"]["type"]
+    @user = User.from_omniauth(request.env['omniauth.auth'], user_type)
     if @user.persisted?
       flash[:notice] = "Hello #{@user.first_name}!"
       logger.info "successful sign-in from email=#{@user.email} ip=#{request.remote_ip}"
       sign_in @user, event: :authentication
-      redirect_to @user
+      redirect_to edit_user_path(@user)
     else
       logger.warn "failed sign-in from email=#{@user.email} ip=#{request.remote_ip}"
       flash[:error] = 'Something went wrong'

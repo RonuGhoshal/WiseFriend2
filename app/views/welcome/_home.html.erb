@@ -10,10 +10,10 @@
 
   <div class="col-sm-6">
     <div id="mentee_signup">Have you recently been released from incarceration? We understand that the process of re-entering society and finding stability can be a difficult one. Sign up now to be matched with a mentor who can help guide you and assist with the challenges you face.<br>
-      <%= link_to("Sign Up Now!", new_user_path(:type => "Mentee")) %>
+      <%= link_to("Sign Up Now!", user_google_oauth2_omniauth_authorize_path(:type => "Mentee"), class: 'btn btn-xl btn-default') %>
     </div>
     <div id="mentor_signup">Volunteer with WiseFriend and make an impact today! If you're interested in helping individuals get their lives back on track and working towards the end of mass incarceration, sign up here to be a mentor!<br>
-      <%= link_to("Sign Up Now!", new_user_path(:type => "Mentor")) %>
+      <%= link_to("Sign Up Now!", user_google_oauth2_omniauth_authorize_path(:type => "Mentor"), class: 'btn btn-xl btn-default') %>
     </div>
   </div>
 </div>
