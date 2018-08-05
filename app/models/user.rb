@@ -11,10 +11,10 @@ class User < ApplicationRecord
 
   def self.from_omniauth access_token
     data = access_token.info
-    user = User.where(:email => data['email']).first
+    user = User.find_by("lower(email) = ?", data.email.downcase)
     # Uncomment the section below if you want users to be created if they don't exist
     unless user
-      user = User.create(email: data['email'])
+      user = User.create!(email: data['email'], first_name: data['first_name'], last_name: data['last_name'])
       if user.valid?
         logger.info "created a new user for email=#{user.email} id=#{user.id}"
       else

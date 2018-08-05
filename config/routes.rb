@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
   end
 
-  resources :users, only: [:index, :show, :update]
+  resources :users, only: [:new, :index, :show, :update]
 
   resources :messages
   resources :users do
@@ -15,4 +15,6 @@ Rails.application.routes.draw do
     resources :areas
     resources :mentorships
   end
+
+
 end
