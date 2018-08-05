@@ -12,20 +12,20 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def create
-    @user = User.new(user_params)
-    if @user.save!
+  def update
+    @user = User.find(params[:id])
+    if @user.update!(user_params)
       if @user.type == "Mentor"
         MentorMailer.welcome_email(@user).deliver_later
-      end
-      if params[:expertise]
-        params[:expertise].each do |area|
-          @user.areas.create(area_type: area)
+        if params[:expertise]
+          params[:expertise].each do |area|
+            @user.areas.create(area_type: area)
+          end
         end
       end
-      redirect_to @user
+      redirect_to "/users/#{@user.id}"
     else
-      render '/mentors/new'
+      format.html { render :edit }
     end
   end
 

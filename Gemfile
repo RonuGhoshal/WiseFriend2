@@ -17,6 +17,7 @@ gem 'figaro'
 gem 'rspec'
 gem 'rspec-rails'
 gem 'font-awesome-rails'
+gem 'simple_form'
 
 # # assets pipeline
 gem 'sass-rails', '~> 5.0'
