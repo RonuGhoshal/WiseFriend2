@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   validates :first_name, presence: true
   validates :email, presence: true, uniqueness: true
+  validates :last_name, presence: true, if: -> { type == "Mentee" }
 
   def self.from_omniauth access_token, type
     data = access_token.info

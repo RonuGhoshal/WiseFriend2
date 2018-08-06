@@ -21,7 +21,7 @@ describe Mentee do
 
   it "is invalid with a duplicate email" do
     mentee1 = FactoryBot.create(:mentee)
-    mentee2 = FactoryBot.build(:mentee)
+    mentee2 = FactoryBot.build(:mentee, email: mentee1.email)
     mentee2.should_not be_valid
   end
 end
