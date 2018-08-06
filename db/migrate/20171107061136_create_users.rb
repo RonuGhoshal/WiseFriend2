@@ -7,8 +7,6 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :location
       t.integer :age
       t.string :gender
-      t.string :mentee_preferred_gender
-      t.string :mentor_preferred_gender
       t.string :phone
       t.string :linkedin
       t.string :preferred_communication

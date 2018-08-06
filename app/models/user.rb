@@ -18,9 +18,9 @@ class User < ApplicationRecord
       user = User.create!(email: data['email'], first_name: data['first_name'], last_name: data['last_name'], type: type)
       if user.valid?
         logger.info "created a new user for email=#{user.email} id=#{user.id}"
-        if @user.type == "Mentor"
+        if user.type == "Mentor"
           MentorMailer.welcome_email(@user).deliver_later
-        elsif @user.type == "Mentee"
+        elsif user.type == "Mentee"
           MenteeMailer.welcome_email(@user).deliver_later
         end
       else
