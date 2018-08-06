@@ -16,5 +16,5 @@ Rails.application.routes.draw do
     resources :mentorships
   end
 
-
+  resources :mentorships
 end

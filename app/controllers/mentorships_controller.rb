@@ -8,14 +8,14 @@ class MentorshipsController < ApplicationController
   end
 
   def create
-    @mentee = Mentee.find(params[:mentee_id])
-    @mentor = Mentor.find(session[:id])
+    mentee = Mentee.find(params[:mentee_id])
+    mentor = Mentor.find(session[:id])
     @mentorship = Mentorship.new(mentee_id: @mentee.id, mentor_id: @mentor.id)
     if @mentorship.save!
       MentorMailer.matched_email(@mentor).deliver_later
       MenteeMailer.matched_email(@mentee).deliver_later
     end
-    render '/mentors/matches'
+    render '/users/show'
   end
 
   def show

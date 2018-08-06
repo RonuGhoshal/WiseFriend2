@@ -16,10 +16,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update!(user_params)
       if @user.type == "Mentor"
-        MentorMailer.welcome_email(@user).deliver_later
         if params[:expertise]
           params[:expertise].each do |area|
-            @user.areas.create(area_type: area)
+            @user.areas.find_or_create_by(area_type: area)
           end
         end
       end
