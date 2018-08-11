@@ -4,15 +4,6 @@ class Mentor < User
   has_many :areas
 
   def match_score(mentee)
-    if self.mentee_preferred_gender == 'M' && mentee.gender != "M"
-      return 0
-    elsif self.mentee_preferred_gender == 'F' && mentee.gender != "F"
-      return 0
-    elsif mentee.mentor_preferred_gender == 'M' && self.gender != "M"
-      return 0
-    elsif mentee.mentor_preferred_gender == 'F' && self.gender != "F"
-      return 0
-    end
     score = 0
     mentor_skills = self.areas.map{|a| a.area_type }
     score += 40 if mentor_skills.include?(mentee.challenge1)
@@ -23,7 +14,7 @@ class Mentor < User
   end
 
   def possible_matches
-    @possible_matches = Mentee.all.sort_by {|m| -match_score(m)}[0..2].select{|m| match_score(m) > 0}
+    Mentee.all.sort_by { |m| -match_score(m) }[0..2].select{ |m| match_score(m) > 0 }
   end
 
 end

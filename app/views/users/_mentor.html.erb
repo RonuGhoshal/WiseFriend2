@@ -1,0 +1,28 @@
+<div class="profile-page">
+
+  <% if @user.mentorships.length >0 %>
+    <div id="current-mentorships">
+      <h3>Your Current Mentorships</h3>
+      <% @mentor.mentorships.each do |mentorship|%>
+        <div id="mentorship">
+          <%= render partial: 'mentees_profile', layout: false, locals: {mentee: mentorship.mentee} %>
+          <%= "Match Score: #{@mentor.match_score(mentee)}" %><br>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+
+  <div id="top-matches">
+    <h3>Your Top Matches</h3>
+    <% @user.possible_matches.each do |mentee|%>
+      <% if Mentorship.find_by(mentor_id: @user.id, mentee_id: mentee.id) == nil %>
+        <div id="top-match">
+          <%= render partial: 'mentee_profile', layout: false, locals: {mentee: mentee} %>
+          <%= "Match Score: #{@user.match_score(mentee)}" %><br>
+          <%= link_to "Accept Match", "/mentorships", method: :post %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+</div>

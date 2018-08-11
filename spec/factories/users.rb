@@ -1,31 +1,18 @@
 FactoryBot.define do
-  factory :user do |u|
-    factory :mentor do
-      first_name Faker::Name.first_name
-      sequence :email do |n|
-        "testuser#{n}@wisefriendmentors.com"
-      end
-      password Faker::Internet.password
-      type "Mentor"
+  factory :mentor do
+    first_name Faker::Name.first_name
+    sequence :email do |n|
+      "testuser#{n}@wisefriendmentors.com"
     end
+    type "Mentor"
+  end
 
-    factory :invalid_mentor do
-      first_name nil
+  factory :mentee do
+    first_name Faker::Name.first_name
+    last_name Faker::Name.last_name
+    sequence :email do |n|
+      "testuser#{n}@wisefriendmentees.com"
     end
-
-    factory :mentee do
-      first_name Faker::Name.first_name
-      last_name Faker::Name.last_name
-      sequence :email do |n|
-        "testuser#{n}@wisefriendmentees.com"
-      end
-      password Faker::Internet.password
-      type "Mentee"
-    end
-
-    factory :invalid_mentee, parent: :mentee do
-      first_name nil
-    end
-
+    type "Mentee"
   end
 end

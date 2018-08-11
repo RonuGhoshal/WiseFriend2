@@ -2,37 +2,35 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    if @user.type == "Mentor"
-      render 'mentors/show'
-    elsif @user.type == "Mentee"
-      render 'mentees/show'      
-    end
   end
 
   def new
-    @mentor = Mentor.new
+    @user = User.new(type: params[:type])
   end
 
-  def create
-    @mentor = Mentor.new(mentor_params)
-    if @mentor.save!
-      MentorMailer.welcome_email(@mentor).deliver_later
-      session[:id] = @mentor.id
-      session[:type] = "mentor"
-      if params[:expertise]
-        params[:expertise].each do |area|
-          @mentor.areas.create(area_type: area)
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+    @user = User.find(params[:id])
+    if @user.update!(user_params)
+      if @user.type == "Mentor"
+        if params[:expertise]
+          params[:expertise].each do |area|
+            @user.areas.find_or_create_by(area_type: area)
+          end
         end
       end
-      redirect_to @mentor
+      redirect_to "/users/#{@user.id}"
     else
-      render '/mentors/new'
+      format.html { render :edit }
     end
   end
 
   private
-    def mentor_params
-      params.require(:mentor).permit(:first_name, :last_name, :location, :age, :gender, :mentee_preferred_gender, :email, :password, :phone, :linkedin, :preferred_communication, :how_did_you_hear, :addl_info)
+    def user_params
+      params.require(:user).permit(:first_name, :last_name, :location, :age, :gender, :email, :password, :phone, :linkedin, :preferred_communication, :how_did_you_hear, :addl_info)
     end
 
 end

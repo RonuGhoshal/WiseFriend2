@@ -4,14 +4,14 @@
   <h3> Congratulations - you've been matched! </h3>
   <div id="mentor_profile">
     <h3>Your Mentor's Profile</h3>
-    <%= render partial: '/mentors/profile', layout: false, locals: {mentor: @user.mentors[0]} %>
+    <%= render partial: 'mentor_profile', layout: false, locals: {mentor: @user.mentors[0]} %>
   </div>
   <% end  %>
   <br>
   <br>
   <div id="mentee_profile">
     <h3>Your Profile</h3>
-    <%= render partial: '/mentees/profile', layout: false, locals: {mentee: @user} %>
+    <%= render partial: 'mentee_profile', layout: false, locals: {mentee: @user} %>
   </div>
 
 </div>

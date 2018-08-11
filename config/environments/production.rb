@@ -2,7 +2,6 @@ Rails.application.configure do
 
   # Settings specified here will take precedence over those in config/application.rb.
 
-  #devise
   config.action_mailer.default_url_options = { host: 'wisefriendapp.herokuapp.com' }
 
   # Code is not reloaded between requests.

@@ -22,10 +22,10 @@
 
       <ul class="nav navbar-nav navbar-right">
         <% if signed_in? %>
-          <%= navbar_link(current_user.username, user_path(current_user), class: 'visible-lg-block') { image_tag(current_user.image_url, class: "img-circle special-img") if current_user.image_url } %>
+          <%= navbar_link(current_user.first_name, user_path(current_user), class: 'visible-lg-block') %>
           <%= navbar_link('', destroy_user_session_path, { method: :delete, class: 'visible-md-block visible-lg-block' }) { fa_icon 'sign-out' } %>
         <% else %>
-          <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <span><%= link_to "Sign-in with #{fa_icon('google-plus')}".html_safe, user_google_oauth2_omniauth_authorize_path, class: 'btn btn-xl btn-default' %></span>
         <% end %>
       </ul>
     </div><!-- /.navbar-collapse -->

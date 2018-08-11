@@ -1,0 +1,45 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">How It Works</h3>
+  </div>
+  <ul class="how-it-works">
+    <li>Create a profile to let us know about yourself and your areas of expertise</li>
+    <li>Get matched with a pair based on the profiles that you both submitted</li>
+    <li>Connect and start helping!</li>
+  </ul>
+  <div class="panel-body">
+    <%= simple_form_for(@user, as: :user, method: :patch, url: user_path(@user)) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        <%= f.input :location %>
+        <%= f.input :age %>
+        <%= f.input :gender %>
+        <%= f.input :phone %>
+        <%= f.input :linkedin %>
+        <%= f.input :preferred_communication %>
+        <%= f.input :how_did_you_hear %>
+        <label>List any other info that you think might be useful to us for finding you a match!</label><br><br>
+        <%= f.text_area :addl_info %>
+        <label>Areas of Expertise</label>
+        <p >Please check the box for any area(s) in which you feel you can provide guidance to your mentee.</p>
+        <div id="areas-of-expertise">
+        <input type="checkbox" name="expertise[]" value="A" > Affordable Housing<br>
+        <input type="checkbox" name="expertise[]" value="D"> Drug/Alcohol Treatment<br>
+        <input type="checkbox" name="expertise[]" value="ED"> Educational Opportunities<br>
+        <input type="checkbox" name="expertise[]" value="EM"> Employment/Job Search<br>
+        <input type="checkbox" name="expertise[]" value="F"> Family Counseling<br>
+        <input type="checkbox" name="expertise[]" value="MC"> Medical Care<br>
+        <input type="checkbox" name="expertise[]" value="MH"> Mental Health Services<br>
+        <input type="checkbox" name="expertise[]" value="N"> Nonviolent Conflict Resolution<br><br>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit, "Get Matched!" %>
+      </div>
+    <% end %>
+  </div>
+</div>

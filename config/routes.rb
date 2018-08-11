@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-
-  devise_for :users
-
   root 'welcome#index'
+
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_scope :user do
+    delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
+  end
+
+  resources :users, only: [:new, :index, :show, :edit, :update]
 
   resources :messages
   resources :users do
@@ -11,4 +15,6 @@ Rails.application.routes.draw do
     resources :areas
     resources :mentorships
   end
+
+  resources :mentorships
 end

@@ -17,7 +17,7 @@ describe Mentor do
 
   it "is invalid with a duplicate email" do
     mentor1 = FactoryBot.create(:mentor)
-    mentor2 = FactoryBot.build(:mentor)
+    mentor2 = FactoryBot.build(:mentor, email: mentor1.email)
     mentor2.should_not be_valid
   end
 end
