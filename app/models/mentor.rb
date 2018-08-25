@@ -1,16 +1,15 @@
 class Mentor < User
   has_many :mentorships
   has_many :mentees, through: :mentorships
-  has_many :areas
 
   def match_score(mentee)
     score = 0
-    mentor_skills = self.areas.map{|a| a.area_type }
+    mentor_skills = self.areas_of_expertise
     score += 40 if mentor_skills.include?(mentee.challenge1)
     score += 30 if mentor_skills.include?(mentee.challenge2)
     score += 20 if mentor_skills.include?(mentee.challenge3)
     score += 10 if self.preferred_communication == mentee.preferred_communication
-    return score
+    score
   end
 
   def possible_matches

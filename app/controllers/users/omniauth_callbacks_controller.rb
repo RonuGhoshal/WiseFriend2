@@ -12,7 +12,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       flash[:notice] = "Hello #{@user.first_name}!"
       logger.info "successful sign-in from email=#{@user.email} ip=#{request.remote_ip}"
       sign_in @user, event: :authentication
-      redirect_to edit_user_path(@user)
+      redirect_to user_path(@user)
     else
       logger.warn "failed sign-in from email=#{@user.email} ip=#{request.remote_ip}"
       flash[:error] = 'Something went wrong'
