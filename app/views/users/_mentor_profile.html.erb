@@ -1,16 +1,14 @@
-<p>
-  Name: <%= mentor.first_name %><br>
-  Location: <%= mentor.location %><br>
-  Age: <%= mentor.age %><br>
-  Gender: <%= mentor.gender %><br>
-  Prefers Contact Via: <%= contact_converter(mentor.preferred_communication) %><br>
-  Additional Info: <%= mentor.addl_info%><br>
-  Areas of Expertise:
-</p>
-<ol class="challenge-list">
-<% mentor.areas_of_expertise.each do |area| %>
-  <li>
-    <%= challenge_converter(area) %>
-  </li>
-<% end %>
-</ol>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>Your Profile <%= link_to "(Edit)", edit_user_path(@user) %></h3>
+  </div>
+  <table class="table table-striped table-hover">
+    <tr><th>Name:</th><td><%= mentor.first_name %></td></tr>
+    <tr><th>Location:</th><td><%= mentor.location %></td></tr>
+    <tr><th>Age:</th><td><%= mentor.age %></td></tr>
+    <tr><th>Gender:</th><td><%= mentor.gender %></td></tr>
+    <tr><th>Prefers Contact Via:</th><td><%= contact_converter(mentor.preferred_communication) %></td></tr>
+    <tr><th>Additional Info:</th><td><%= mentor.addl_info %></td></tr>
+    <tr><th>Areas Of Expertise:</th><td><%= mentor.areas_of_expertise.map {|area| challenge_converter(area) }.join(", ") %></td></tr>
+  </table>
+</div>
