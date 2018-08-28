@@ -14,7 +14,6 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    binding.pry
     if @user.update!(user_params)
       redirect_to "/users/#{@user.id}"
     else
@@ -24,7 +23,7 @@ class UsersController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :location, :age, :gender, :email, :password, :phone, :linkedin, :preferred_communication, :how_did_you_hear, :addl_info, :challenge1, :challenge2, :challenge3, :areas_of_expertise => [])
+      params.require(:user).permit(:first_name, :last_name, :location, :age, :gender, :email, :password, :phone, :linkedin, :preferred_communication, :how_did_you_hear, :addl_info, :challenge1, :challenge2, :challenge3, areas_of_expertise: [])
     end
 
 end
