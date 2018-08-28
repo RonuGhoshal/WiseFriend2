@@ -15,13 +15,6 @@ ActiveRecord::Schema.define(version: 20180805193642) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "areas", id: :serial, force: :cascade do |t|
-    t.text "area_type"
-    t.integer "mentor_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "mentorships", force: :cascade do |t|
     t.bigint "mentor_id", null: false
     t.bigint "mentee_id", null: false
@@ -36,8 +29,6 @@ ActiveRecord::Schema.define(version: 20180805193642) do
     t.string "location"
     t.integer "age"
     t.string "gender"
-    t.string "mentee_preferred_gender"
-    t.string "mentor_preferred_gender"
     t.string "phone"
     t.string "linkedin"
     t.string "preferred_communication"
@@ -46,6 +37,7 @@ ActiveRecord::Schema.define(version: 20180805193642) do
     t.string "challenge1"
     t.string "challenge2"
     t.string "challenge3"
+    t.text "areas_of_expertise", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false

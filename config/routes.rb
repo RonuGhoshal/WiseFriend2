@@ -12,7 +12,6 @@ Rails.application.routes.draw do
   resources :users do
     resources :mentor_surveys
     resources :mentee_surveys
-    resources :areas
     resources :mentorships
   end
 

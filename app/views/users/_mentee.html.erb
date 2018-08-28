@@ -10,7 +10,7 @@
   <br>
   <br>
   <div id="mentee_profile">
-    <h3>Your Profile</h3>
+    <h3>Your Profile <%= link_to "(Edit)", edit_user_path(@user) %></h3>
     <%= render partial: 'mentee_profile', layout: false, locals: {mentee: @user} %>
   </div>
 

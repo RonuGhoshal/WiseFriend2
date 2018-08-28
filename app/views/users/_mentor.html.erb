@@ -1,12 +1,17 @@
 <div class="profile-page">
 
+  <div id="mentor_profile">
+    <h3>Your Profile <%= link_to "(Edit)", edit_user_path(@user) %></h3>
+    <%= render partial: 'mentor_profile', layout: false, locals: {mentor: @user} %>
+  </div>
+
   <% if @user.mentorships.length >0 %>
     <div id="current-mentorships">
       <h3>Your Current Mentorships</h3>
-      <% @mentor.mentorships.each do |mentorship|%>
+      <% @user.mentorships.each do |mentorship|%>
         <div id="mentorship">
-          <%= render partial: 'mentees_profile', layout: false, locals: {mentee: mentorship.mentee} %>
-          <%= "Match Score: #{@mentor.match_score(mentee)}" %><br>
+          <%= render partial: 'mentee_profile', layout: false, locals: {mentee: mentorship.mentee} %>
+          <%= "Match Score: #{@user.match_score(mentorship.mentee)}" %><br>
         </div>
       <% end %>
     </div>
@@ -19,7 +24,7 @@
         <div id="top-match">
           <%= render partial: 'mentee_profile', layout: false, locals: {mentee: mentee} %>
           <%= "Match Score: #{@user.match_score(mentee)}" %><br>
-          <%= link_to "Accept Match", "/mentorships", method: :post %>
+          <%= button_to "Accept Match", "/mentorships", method: :post, params: {mentor_id: @user.id, mentee_id: mentee.id} %>
         </div>
       <% end %>
     <% end %>

@@ -15,6 +15,7 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :challenge1
       t.string :challenge2
       t.string :challenge3
+      t.text :areas_of_expertise, array: true, default: []
       t.timestamps null: false
     end
   end
