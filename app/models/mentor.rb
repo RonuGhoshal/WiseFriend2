@@ -13,7 +13,7 @@ class Mentor < User
   end
 
   def possible_matches
-    Mentee.all.sort_by { |m| -match_score(m) }[0..2].select{ |m| match_score(m) > 0 }
+    mentees = Mentee.all.sort_by { |m| -match_score(m) }[0..2].select{ |m| match_score(m) > 0  && mentorships.find_by(mentee_id: m.id) == nil }
   end
 
 end
