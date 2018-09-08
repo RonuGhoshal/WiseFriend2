@@ -15,18 +15,20 @@
       <% end %>
     </div>
   <% end %>
-
-  <div id="top-matches">
-    <h3>Your Top Matches</h3>
-    <% @user.possible_matches.each do |mentee|%>
-      <% if Mentorship.find_by(mentor_id: @user.id, mentee_id: mentee.id) == nil %>
-        <div id="top-match">
-          <%= render partial: 'mentee_profile', layout: false, locals: {mentee: mentee} %>
-          <%= "Match Score: #{@user.match_score(mentee)}" %><br>
-          <%= button_to "Accept Match", "/mentorships", method: :post, params: {mentor_id: @user.id, mentee_id: mentee.id} %>
-        </div>
+  <%= binding.pry %>
+  <% if @user.possible_matches.length > 0 %>
+    <div id="top-matches">
+      <h3>Your Top Matches</h3>
+      <% @user.possible_matches.each do |mentee|%>
+        <% if Mentorship.find_by(mentor_id: @user.id, mentee_id: mentee.id) == nil %>
+          <div id="top-match">
+            <%= render partial: 'mentee_profile', layout: false, locals: {mentee: mentee} %>
+            <%= "Match Score: #{@user.match_score(mentee)}" %><br>
+            <%= button_to "Accept Match", "/mentorships", method: :post, params: {mentor_id: @user.id, mentee_id: mentee.id} %>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 
 </div>
