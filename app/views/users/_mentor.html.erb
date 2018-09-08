@@ -1,7 +1,6 @@
 <div class="profile-page">
 
   <div id="mentor_profile">
-    <h3>Your Profile <%= link_to "(Edit)", edit_user_path(@user) %></h3>
     <%= render partial: 'mentor_profile', layout: false, locals: {mentor: @user} %>
   </div>
 
