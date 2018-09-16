@@ -1,5 +1,13 @@
-<% if @user.type == "Mentor" %>
-  <%= render partial: 'mentor' %>
-<% elsif @user.type == 'Mentee' %>
-  <%= render partial: 'mentee' %>
-<% end %>
+<ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#edit_profile">Edit Profile</a></li>
+  <li><a data-toggle="tab" href="#view_profile">View Profile</a></li>
+</ul>
+
+<div class="tab-content">
+  <div id="edit_profile" class="tab-pane active">
+    <%= render 'panel_edit_profile' %>
+  </div>
+  <div id="view_profile" class="tab-pane">
+    <%= render 'panel_view_profile' %>
+  </div>
+</div>
