@@ -1,5 +1,9 @@
-<% if @user.type == "Mentor" %>
-  <%= render partial: "mentor_form" %>
-<% elsif @user.type == "Mentee" %>
-  <%= render partial: "mentee_form" %>
-<% end %>
+<div class="row">
+  <div class="col-lg-6">
+    <% if @user.type == "Mentor" %>
+      <%= render partial: "mentor_form" %>
+    <% elsif @user.type == "Mentee" %>
+      <%= render partial: "mentee_form" %>
+    <% end %>
+  </div>
+</div>

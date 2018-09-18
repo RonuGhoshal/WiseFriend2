@@ -8,66 +8,68 @@
     <li>Connect with your mentor and start getting the help you need!</li>
   </ul>
 
-  <div class="panel-body">
-    <%= simple_form_for(@user, as: :user, method: :patch, url: user_path(@user)) do |f| %>
-      <%= f.error_notification %>
+  <%= simple_form_for(@user, as: :user, method: :patch, url: user_path(@user)) do |f| %>
+    <%= f.error_notification %>
 
-      <div class="form-inputs">
-        <%= f.input :first_name %>
-        <%= f.input :last_name %>
-        <%= f.input :location %>
-        <%= f.input :age %>
-        <%= f.input :gender %>
-        <%= f.input :location %>
-        <%= f.input :location %>
-        <%= f.input :phone %>
-        <%= f.input :preferred_communication %>
-        <%= f.input :how_did_you_hear %>
-        <label>How did you hear about us?</label>
-        <label>List any other info that you think might be useful to us for finding you a mentor!</label><br><br>
-        <%= f.text_area :addl_info %>
-        <label>Top 3 Challenges</label>
-        <p>Please select up to 3 areas where you would like advice or mentoring</p>
-        <div id="mentee_challenges">
-          <label>Challenge #1</label>
-          <select id="challenge1" name="user[challenge1]">
-              <option value="blank"></option>
-              <option value="A">Affordable Housing</option>
-              <option value="D">Drug/Alcohol Treatment</option>
-              <option value="ED">Educational Opportunities</option>
-              <option value="EM">Employment/Job Search</option>
-              <option value="F">Family Counseling</option>
-              <option value="MC">Medical Care</option>
-              <option value="MH">Mental Health Services</option>
-              <option value="N">Nonviolent Conflict Resolution</option>
-          </select><br>
-          <label>Challenge #2</label>
-          <select id="challenge2" name="user[challenge2]">
-              <option value="blank"></option>
-              <option value="A">Affordable Housing</option>
-              <option value="D">Drug/Alcohol Treatment</option>
-              <option value="ED">Educational Opportunities</option>
-              <option value="EM">Employment/Job Search</option>
-              <option value="F">Family Counseling</option>
-              <option value="MC">Medical Care</option>
-              <option value="MH">Mental Health Services</option>
-              <option value="N">Nonviolent Conflict Resolution</option>
-          </select><br>
-          <label>Challenge #3</label>
-          <select id="challenge3" name="user[challenge3]">
-              <option value="blank"></option>
-              <option value="A">Affordable Housing</option>
-              <option value="D">Drug/Alcohol Treatment</option>
-              <option value="ED">Educational Opportunities</option>
-              <option value="EM">Employment/Job Search</option>
-              <option value="F">Family Counseling</option>
-              <option value="MC">Medical Care</option>
-              <option value="MH">Mental Health Services</option>
-              <option value="N">Nonviolent Conflict Resolution</option>
-          </select><br><br>
-        </div>
-        <input class="new-profile" type="submit">
+    <div class="form-group">
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :location %>
+      <%= f.input :age %>
+      <%= f.input :gender %>
+      <%= f.input :phone %>
+      <%= f.input :preferred_communication, collection: ["Phone", "Email"] %>
+      <%= f.input :how_did_you_hear, label: "How did you hear about us?" %>
+      <label>List any other info that you think might be useful to us for finding you a mentor!</label>
+      <%= f.text_area :addl_info %>
+    </div>
+
+    <div class="form-group">
+      <label>Top 3 Challenges</label>
+      <p>Please select up to 3 areas where you would like advice or mentoring</p>
+      <div id="mentee_challenges">
+        <label>Challenge #1</label>
+        <select id="challenge1" name="user[challenge1]">
+          <%= render 'challenges' %>
+        </select><br>
+        <label>Challenge #2</label>
+        <select id="challenge2" name="user[challenge2]">
+          <%= render 'challenges' %>
+        </select><br>
+        <label>Challenge #3</label>
+        <select id="challenge3" name="user[challenge3]">
+          <%= render 'challenges' %>
+        </select><br><br>
       </div>
-    <% end %>
-  </div>
+      <input class="new-profile" type="submit">
+    </div>
+  <% end %>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $( '#challenge1' ).change(function(){
+      var c1 = $(this).val();
+      $('#challenge2 option').show();
+      $('#challenge3 option').show();
+      $( '#challenge2 option[value="' + c1 + '"]' ).hide();
+      $( '#challenge3 option[value="' + c1 + '"]' ).hide();
+    });
+
+    $( '#challenge2' ).change(function(){
+      var c2 = $(this).val();
+      $('#challenge1 option').show();
+      $('#challenge3 option').show();
+      $( '#challenge1 option[value="' + c2 + '"]' ).hide();
+      $( '#challenge3 option[value="' + c2 + '"]' ).hide();
+    });
+
+    $( '#challenge3' ).change(function(){
+      var c3 = $(this).val();
+      $('#challenge1 option').show();
+      $('#challenge2 option').show();
+      $( '#challenge1 option[value="' + c3 + '"]' ).hide();
+      $( '#challenge2 option[value="' + c3 + '"]' ).hide();
+    });
+  });
+</script>
