@@ -1,5 +1,1 @@
-<% if @user.type == "Mentor" %>
-  <%= render partial: "mentor_form" %>
-<% elsif @user.type == "Mentee" %>
-  <%= render partial: "mentee_form" %>
-<% end %>
+<%= render 'panel_edit_profile' %>
